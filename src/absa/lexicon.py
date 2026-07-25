@@ -1,0 +1,46 @@
+ASPECT_KEYWORDS = {
+    "food": {"food", "meal", "taste", "dish", "menu", "flavor", "flavour"},
+    "service": {"service", "staff", "waiter", "waitress", "response", "support"},
+    "price": {"price", "cost", "expensive", "cheap", "affordable", "value"},
+    "delivery": {"delivery", "delivered", "shipping", "late", "quick", "delay"},
+    "quality": {"quality", "durable", "poor", "excellent", "defective", "packaging"},
+    "ambience": {"ambience", "atmosphere", "environment", "place", "decor"},
+}
+
+POSITIVE_WORDS = {
+    "amazing",
+    "affordable",
+    "best",
+    "clean",
+    "delicious",
+    "excellent",
+    "fast",
+    "friendly",
+    "good",
+    "great",
+    "happy",
+    "pleasant",
+    "quick",
+    "recommended",
+    "satisfied",
+    "tasty",
+    "worth",
+}
+
+NEGATIVE_WORDS = {
+    "bad",
+    "broken",
+    "costly",
+    "delay",
+    "defective",
+    "disappointed",
+    "expensive",
+    "late",
+    "poor",
+    "rude",
+    "slow",
+    "terrible",
+    "unhappy",
+    "waste",
+    "worst",
+}
