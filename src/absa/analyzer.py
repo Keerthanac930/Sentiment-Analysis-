@@ -30,6 +30,17 @@ class AspectSentimentAnalyzer:
                 }
             )
 
+        if not results:
+            sentiment, score = self._classify_sentiment(tokens)
+            return [
+                {
+                    "aspect": "overall",
+                    "matched_keywords": "",
+                    "sentiment": sentiment,
+                    "score": score,
+                }
+            ]
+
         return results
 
     def analyze_dataframe(self, dataframe, text_column="review"):
@@ -39,18 +50,6 @@ class AspectSentimentAnalyzer:
 
         for index, review in dataframe[text_column].items():
             analysis = self.analyze(review)
-            if not analysis:
-                rows.append(
-                    {
-                        "row_id": index,
-                        "review": review,
-                        "aspect": "not_detected",
-                        "matched_keywords": "",
-                        "sentiment": "neutral",
-                        "score": 0,
-                    }
-                )
-                continue
 
             for result in analysis:
                 rows.append({"row_id": index, "review": review, **result})
@@ -63,18 +62,6 @@ class AspectSentimentAnalyzer:
         for index, record in enumerate(records):
             review = record.get(text_column, "")
             analysis = self.analyze(review)
-            if not analysis:
-                rows.append(
-                    {
-                        "row_id": index,
-                        "review": review,
-                        "aspect": "not_detected",
-                        "matched_keywords": "",
-                        "sentiment": "neutral",
-                        "score": 0,
-                    }
-                )
-                continue
 
             for result in analysis:
                 rows.append({"row_id": index, "review": review, **result})

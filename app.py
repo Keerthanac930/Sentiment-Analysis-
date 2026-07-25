@@ -20,11 +20,8 @@ review_text = st.text_area(
 if st.button("Analyze Review"):
     results = analyzer.analyze(review_text)
 
-    if not results:
-        st.info("No configured aspects were found in the review.")
-    else:
-        st.subheader("Aspect Sentiment")
-        st.dataframe(pd.DataFrame(results), use_container_width=True)
+    st.subheader("Sentiment Result")
+    st.dataframe(pd.DataFrame(results), use_container_width=True)
 
 uploaded_file = st.file_uploader("Upload CSV with a review column", type=["csv"])
 
